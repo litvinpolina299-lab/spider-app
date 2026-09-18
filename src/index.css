@@ -144,23 +144,56 @@ a {
   width: 100%;
 }
 
+/* ===== HERO SECTION ===== */
 .hero-section {
-  text-align: center;
-  margin-bottom: 50px;
+  position: relative;
+  margin-left: calc(-50vw + 50%);
+  width: 100vw;
+  /* Прибираємо верхній відступ повністю, щоб підняти блок максимальної вгору */
+  padding: 0 0 30px 0; 
+  margin-top: -20px; /* Додатково піднімаємо блок вгору */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-avatar {
+  width: 480px; 
+  height: auto;
+  object-fit: contain;
+  margin-left: 0;
+  display: block;
+  /* Віддзеркалення картинки по горизонталі */
+  transform: scaleX(-1); 
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 850px; 
+  padding-right: 5%; 
+  padding-left: 30px;
 }
 
 .hero-quote {
   color: var(--color-red);
-  font-size: 32px;
+  font-size: 38px;
   font-weight: 900;
-  margin-bottom: 15px;
   text-transform: uppercase;
+  margin-bottom: 15px;
+  line-height: 1.15;
 }
 
 .hero-subtitle {
   color: var(--color-white-80);
-  max-width: 700px;
-  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.6;
 }
 
 .movies-section {
@@ -169,41 +202,63 @@ a {
 
 .movies-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  margin-bottom: 30px;
 }
 
 .movie-card {
-  background-color: var(--color-bg-card);
-  padding: 20px;
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+}
+
+.movie-poster {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Червона плашка з назвою */
+.movie-title-banner {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  font-weight: 800;
+  font-size: 14px;
   text-align: center;
+  padding: 8px 5px;
+  line-height: 1.2;
+}
+
+/* Блок з кнопками внизу */
+.movie-actions {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 15px;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.stats-list {
-  list-style: none;
-  background-color: #15151c;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.stats-list li {
-  margin-bottom: 10px;
-  color: var(--color-white-80);
-}
-
-.preview-section {
-  background-color: var(--color-bg-card);
-  padding: 30px;
-  border-radius: 8px;
-  margin-bottom: 30px;
+.btn-action {
+  background-color: var(--color-blue);
+  color: var(--color-black);
+  font-weight: 800;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.btn-action:hover {
+  opacity: 0.85;
+}
+
+.main-btn {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 38px;
+  font-size: 18px;
 }
