@@ -7,7 +7,7 @@ export default function Home() {
       <section className="hero-section">
         <div className="hero-container">
           <img 
-            src="/images/back-of-spiderman.jpg" 
+            src="/images/back-of-spiderman.png" 
             alt="Людина-павук" 
             className="hero-avatar" 
           />
@@ -91,19 +91,78 @@ export default function Home() {
 
         </div>
 
-        <ul className="stats-list">
-          <li>💥 Загальний бюджет: Близько $750 млн (на створення чотирьох частин).</li>
-          <li>💥 Сумарні світові касові збори: понад $3.9 млрд.</li>
-          <li>💥 Середній рейтинг: одностайно 87% позитивних рецензій від критиків.</li>
-          <li>💥 Сумарний хронометраж: понад 9.5 годин перегляду.</li>
-        </ul>
+        <div className="stats-block">
+          <ul className="stats-list">
+            <li>
+              <img src="/images/red-spider.png" alt="spider" className="stat-spider-icon" />
+              <span>Загальний бюджет: Близько $750 млн (на створення чотирьох частин).</span>
+            </li>
+            <li>
+              <img src="/images/red-spider.png" alt="spider" className="stat-spider-icon" />
+              <span>Сумарні світові касові збори: понад $3.9 млрд.</span>
+            </li>
+            <li>
+              <img src="/images/red-spider.png" alt="spider" className="stat-spider-icon" />
+              <span>Середній рейтинг: одностайно 87% позитивних рецензій від критиків.</span>
+            </li>
+            <li>
+              <img src="/images/red-spider.png" alt="spider" className="stat-spider-icon" />
+              <span>Сумарний хронометраж: понад 9.5 годин перегляду.</span>
+            </li>
+          </ul>
+        </div>
       </section>
 
       {/* 3. Прев'ю персонажів */}
-      <section className="preview-section characters-preview">
-        <h2>Персонажі</h2>
-        <p>Пітер Паркер, ЕмДжей, Нед та інші герої та лиходії всесвіту.</p>
-        <Link to="/characters" className="btn-blue">Дізнатися більше...</Link>
+      <section className="section-block characters-section">
+        <div className="characters-container">
+          
+          {/* Скошений білий заголовок */}
+          <div className="block-title-badge">
+            <h2>Персонажі</h2>
+          </div>
+
+          {/* Список персонажів з паралелограмами */}
+          <div className="characters-list">
+            
+            <div className="char-item">
+              <div className="char-avatar-wrapper">
+                <img src="/images/spiderman-without-mask.jpg" alt="Пітер Паркер" className="char-avatar-img" />
+              </div>
+              <div className="char-text">
+                <h3>Пітер Паркер</h3>
+                <p>Хлопець, який намагався довести Тоні Старку, що він здатен на більше, ніж просто...</p>
+              </div>
+            </div>
+
+            <div className="char-item">
+              <div className="char-avatar-wrapper">
+                <img src="/images/mj-2.avif" alt="ЕмДжей" className="char-avatar-img" />
+              </div>
+              <div className="char-text">
+                <h3>ЕмДжей</h3>
+                <p>Найуважніша дівчина у школі, яка опинилася під небезпекою через...</p>
+              </div>
+            </div>
+
+            <div className="char-item">
+              <div className="char-avatar-wrapper">
+                <img src="/images/ned-2.webp" alt="Нед Лідс" className="char-avatar-img" />
+              </div>
+              <div className="char-text">
+                <h3>Нед</h3>
+                <p>Перший, хто дізнався таємницю й готовий ризикувати всім, навіть...</p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Скошена блакитна кнопка */}
+          <Link to="/characters" className="btn-skew-blue">
+            Дізнатися більше...
+          </Link>
+
+        </div>
       </section>
 
       {/* 4. Прев'ю закулісся */}
