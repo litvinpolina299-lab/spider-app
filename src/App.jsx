@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
 import Home from './pages/Home';
 import SpiderPath from './pages/SpiderPath';
 import Characters from './pages/Characters';
@@ -8,7 +9,7 @@ import AudioArchive from './pages/AudioArchive';
 export default function App() {
   return (
     <BrowserRouter>
-      {/* Тут пізніше додамо компонент Header */}
+      <Header />
       
       <Routes>
         <Route path="/" element={<Home />} />
@@ -17,8 +18,6 @@ export default function App() {
         <Route path="/behind-the-scenes" element={<BehindTheScenes />} />
         <Route path="/audio-archive" element={<AudioArchive />} />
       </Routes>
-
-      {/* Тут пізніше додамо компонент Footer */}
     </BrowserRouter>
   );
 }
