@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import SpiderPath from './pages/SpiderPath';
 import Characters from './pages/Characters';
@@ -18,6 +19,8 @@ export default function App() {
         <Route path="/behind-the-scenes" element={<BehindTheScenes />} />
         <Route path="/audio-archive" element={<AudioArchive />} />
       </Routes>
+
+      <Footer />
     </BrowserRouter>
   );
 }
