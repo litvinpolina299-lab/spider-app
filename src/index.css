@@ -459,3 +459,132 @@ a {
 .btn-skew-blue:hover {
   filter: brightness(0.85); /* Трохи темнішає */
 }
+
+/* ===== СЕКЦІЯ ЗАКУЛІССЯ (Піднята та розширена) ===== */
+.bts-banner-section {
+  background-color: #d11119;
+  background-image: radial-gradient(#80040a 20%, transparent 20%);
+  background-size: 10px 10px;
+  padding: 40px 0 60px 0;
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  
+  /* Піднімаємо весь блок трохи вище */
+  margin-top: -30px;
+}
+
+.bts-banner-card {
+  background: radial-gradient(circle at center, #3a4150 0%, #171a23 65%, #0b0d12 100%);
+  width: 100%;
+  max-width: 100%;
+  
+  /* Збільшуємо мінімальну висоту, щоб фотографії не обрізалися */
+  min-height: 580px; 
+  
+  /* Збільшений верхній padding дає запас місця для скосу над фотографіями */
+  padding: 120px 80px 60px 80px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  
+  /* Виражений нахил верхнього краю із збереженими дрібними зубцями */
+  clip-path: polygon(
+    0% 14%, 1% 12%, 2% 15%, 3% 13%, 4% 15%, 5% 12%, 6% 14%, 7% 13%, 8% 15%, 9% 12%, 10% 14%, 11% 13%, 12% 15%, 13% 12%, 14% 14%, 15% 13%, 16% 15%, 17% 11%, 18% 13%, 19% 12%, 20% 14%, 21% 11%, 22% 13%, 23% 12%, 24% 14%, 25% 10%, 26% 12%, 27% 11%, 28% 13%, 29% 10%, 30% 12%, 31% 11%, 32% 13%, 33% 9%, 34% 11%, 35% 10%, 36% 12%, 37% 9%, 38% 11%, 39% 10%, 40% 12%, 41% 7%, 42% 9%, 43% 8%, 44% 10%, 45% 7%, 46% 9%, 47% 8%, 48% 10%, 49% 6%, 50% 8%, 51% 7%, 52% 9%, 53% 6%, 54% 8%, 55% 7%, 56% 9%, 57% 5%, 58% 7%, 59% 6%, 60% 8%, 61% 4%, 62% 6%, 63% 5%, 64% 7%, 65% 4%, 66% 6%, 67% 5%, 68% 7%, 69% 3%, 70% 5%, 71% 4%, 72% 6%, 73% 3%, 74% 5%, 75% 4%, 76% 6%, 77% 2%, 78% 4%, 79% 3%, 80% 5%, 81% 1%, 82% 3%, 83% 2%, 84% 4%, 85% 1%, 86% 3%, 87% 2%, 88% 4%, 89% 0%, 90% 2%, 91% 1%, 92% 3%, 93% 0%, 94% 2%, 95% 1%, 96% 3%, 97% 0%, 98% 2%, 99% 1%, 100% 3%,
+    100% 98%, 99% 100%, 98% 97%, 97% 99%, 96% 97%, 95% 100%, 94% 98%, 93% 99%, 92% 97%, 91% 100%, 90% 98%, 89% 99%, 88% 97%, 87% 100%, 86% 98%, 85% 99%, 84% 97%, 83% 100%, 82% 98%, 79% 100%, 78% 98%, 77% 99%, 76% 97%, 75% 100%, 74% 98%, 73% 99%, 72% 97%, 71% 100%, 70% 98%, 69% 99%, 68% 97%, 67% 100%, 66% 98%, 65% 99%, 64% 97%, 63% 100%, 62% 98%, 61% 99%, 60% 97%, 59% 100%, 58% 98%, 57% 99%, 56% 97%, 55% 100%, 54% 98%, 53% 99%, 52% 97%, 51% 100%, 50% 98%, 49% 99%, 48% 97%, 47% 100%, 46% 98%, 45% 99%, 44% 97%, 43% 100%, 42% 98%, 41% 99%, 40% 97%, 39% 100%, 38% 98%, 37% 99%, 36% 97%, 35% 100%, 34% 98%, 33% 99%, 32% 97%, 31% 100%, 30% 98%, 29% 99%, 28% 97%, 27% 100%, 26% 98%, 25% 99%, 24% 97%, 23% 100%, 22% 98%, 21% 99%, 20% 97%, 19% 100%, 18% 98%, 17% 99%, 16% 97%, 15% 100%, 14% 98%, 13% 99%, 12% 97%, 11% 100%, 10% 98%, 9% 99%, 8% 97%, 7% 100%, 6% 98%, 5% 99%, 4% 97%, 3% 100%, 2% 98%, 1% 99%, 0% 97%
+  );
+}
+
+/* Базові стилі для зображень колажу */
+.bts-photos-column img {
+  width: 100%;
+  height: 135px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Перше фото (Пітер та Нед) — фокус на обличчях зверху */
+.bts-photos-column img:nth-child(1) {
+  object-position: center 15%;
+}
+
+/* Друге фото (політ з ЕмДжей) — фокус трохи вище центру */
+.bts-photos-column img:nth-child(2) {
+  object-position: center 20%;
+}
+
+/* Третє фото (Том Холланд у футболці) — піднімаємо фокус на обличчя */
+.bts-photos-column img:nth-child(3) {
+  object-position: center 15%;
+}
+
+.bts-photos-column img {
+  width: 100%;
+  height: 135px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Центрування вмісту */
+.bts-content {
+  text-align: center;
+  flex: 1;
+  padding: 0 20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bts-content h2 {
+  font-family: 'Russo One', sans-serif;
+  font-size: 42px;
+  color: var(--color-white);
+  line-height: 1.2;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.bts-content .btn-skew-blue {
+  margin-left: 0;
+  padding: 14px 35px;
+  font-size: 16px;
+}
+
+/* Балансувальник ширини для точного центрування */
+.bts-banner-card::after {
+  content: '';
+  width: 220px;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* Хлопавка */
+.bts-clapper-icon {
+  position: absolute;
+  top: 15px;
+  right: 150px;
+  width: 230px;
+  height: auto;
+  transform: rotate(12deg);
+  z-index: 4;
+}
+
+/* Павук */
+.bts-spidey-img {
+  position: absolute;
+  right: 10px;
+  bottom: -20px;
+  height: 400px;
+  object-fit: contain;
+  z-index: 5;
+  pointer-events: none;
+}

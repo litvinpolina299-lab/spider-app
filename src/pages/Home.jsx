@@ -166,9 +166,31 @@ export default function Home() {
       </section>
 
       {/* 4. Прев'ю закулісся */}
-      <section className="preview-section bts-preview">
-        <h2>Хочеш побачити закулісся зйомок?</h2>
-        <Link to="/behind-the-scenes" className="btn-blue">Побачити закулісся</Link>
+      <section className="bts-banner-section">
+        <div className="bts-banner-card">
+          
+          {/* Іконка хлопавки зверху праворуч */}
+          <img src="/images/movie-clapper.png" alt="Хлопавка" className="bts-clapper-icon" />
+
+          {/* Лівий колаж з 3 фото */}
+          <div className="bts-photos-column">
+            <img src="/images/tom-ned.jpg" alt="Закулісся 1" />
+            <img src="/images/spiderman-mj.jpg" alt="Закулісся 2" />
+            <img src="/images/peter-pajamas.jpg" alt="Закулісся 3" />
+          </div>
+
+          {/* Центральний контент */}
+          <div className="bts-content">
+            <h2>Хочеш побачити<br />закулісся зйомок?</h2>
+            <Link to="/behind-the-scenes" className="btn-skew-blue">
+              Побачити закулісся
+            </Link>
+          </div>
+
+          {/* Людина-павук праворуч */}
+          <img src="/images/spiderman-right-side.png" alt="Людина-павук" className="bts-spidey-img" />
+
+        </div>
       </section>
 
       {/* 5. Прев'ю аудіоархіву */}
