@@ -54,7 +54,6 @@ a {
   position: sticky;
   top: 0;
   z-index: 100;
-
 }
 
 .header-logo a {
@@ -129,19 +128,32 @@ a {
   font-size: 14px;
 }
 
-/* Кнопки */
-.btn-blue {
-  display: inline-block;
+/* ==========================================
+   УНІФІКОВАНІ СТИЛІ ДЛЯ КНОПОК
+   ========================================== */
+
+/* 1. Головний базовий клас кнопки (.btn-blue та .cta-button розширюють його) */
+.btn-blue,
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--color-blue);
   color: var(--color-black);
-  font-weight: 300;
-  padding: 10px 20px;
-  border-radius: 4px;
-  transition: opacity 0.2s ease;
+  font-family: inherit;
+  font-weight: normal;
+  font-size: 0.95rem;
+  padding: 12px 26px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
 }
 
-.btn-blue:hover {
-  opacity: 0.85;
+.btn-blue:hover,
+.cta-button:hover {
+  opacity: 0.9;
+  filter: brightness(0.95);
+  transform: translateY(-2px);
 }
 
 /* Home Page */
@@ -157,14 +169,12 @@ a {
   position: relative;
   margin-left: calc(-50vw + 50%);
   width: 100vw;
-  /* Прибираємо верхній відступ повністю, щоб підняти блок максимальної вгору */
   padding: 0 0 50px 0; 
-  margin-top: -40px; /* Додатково піднімаємо блок вгору */
+  margin-top: -40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-  
 }
 
 .hero-container {
@@ -179,7 +189,6 @@ a {
   object-fit: contain;
   margin-left: 0;
   display: block;
-  /* Віддзеркалення картинки по горизонталі */
   transform: scaleX(-1); 
 }
 
@@ -229,7 +238,6 @@ a {
   display: block;
 }
 
-/* Червона плашка з назвою */
 .movie-title-banner {
   background-color: var(--color-red);
   color: var(--color-white);
@@ -240,7 +248,7 @@ a {
   line-height: 1.2;
 }
 
-/* Блок з кнопками внизу */
+/* Кнопки під картками фільмів на Головній */
 .movie-actions {
   display: flex;
   gap: 10px;
@@ -250,15 +258,18 @@ a {
 .btn-action {
   background-color: var(--color-blue);
   color: var(--color-black);
-  font-weight: 300;
+  font-weight: normal;
+  border: none;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .btn-action:hover {
   opacity: 0.85;
+  transform: translateY(-1px);
 }
 
 .main-btn {
@@ -301,7 +312,6 @@ a {
   margin-bottom: 0;
 }
 
-/* Картинка павучка ліворуч (збільшена) */
 .stat-spider-icon {
   width: 60px; 
   height: 60px; 
@@ -330,7 +340,6 @@ a {
   align-items: flex-start;
 }
 
-/* Заголовок */
 .block-title-badge {
   background-color: var(--color-white);
   color: var(--color-black);
@@ -348,30 +357,22 @@ a {
   margin: 0;
 }
 
-/* Список карточок */
 .characters-list {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-bottom: 35px;
-  /* Очищаємо правий край від обрізання через скос */
   padding-right: 0;
 }
 
-/* Нахилений темний блок карточки без обрізання */
 .char-item {
   display: flex;
   align-items: center;
   padding: 15px 40px 15px 30px;
-  
-  /* Відступ зліва для вирівнювання та плавного скосу */
   margin-left: 8%;
-  width: calc(100% - 8% + 50px); /* Компенсація зсуву праворуч */
-
+  width: calc(100% - 8% + 50px);
   position: relative;
   margin-top: -20px;
-  
-  /* Рівний нахил паралельно з обгортками картинки */
   transform: skewX(-15deg);
   border-left: 6px solid var(--color-red);
 }
@@ -392,37 +393,31 @@ a {
   z-index: 1;
 }
 
-/* Обгортка зображення */
 .char-avatar-wrapper {
   width: 150px;
   height: 95px;
   flex-shrink: 0;
   position: relative;
-
   margin-left: 10px;
   overflow: hidden;
-  /* Фото і обгортка тепер автоматично повторюють нахил блоку */
 }
 
 .char-avatar-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Компенсуємо нахил для самого зображення, щоб воно не деформувалось */
   transform: skewX(15deg) scale(1.25);
   object-position: center;
 }
 
-/* Кадрування облич для персонажів */
 .char-item:nth-child(1) .char-avatar-img {
-  object-position: center 15%; /* Пітер Паркер */
+  object-position: center 15%;
 }
 
 .char-item:nth-child(3) .char-avatar-img {
-  object-position: center top; /* Піднімаємо кадр для Неда */
+  object-position: center top;
 }
 
-/* Текст (вирівнюємо назад у нормальний стан) */
 .char-text {
   padding-left: 30px;
   color: var(--color-white);
@@ -442,27 +437,26 @@ a {
   line-height: 1.3;
 }
 
-/* Блакитна кнопка під персонажами */
+/* Нахилена кнопка в секції Персонажі (наслідує основну колірну гаму) */
 .btn-skew-blue {
   background-color: var(--color-blue);
   color: var(--color-black);
-  font-weight: 300;
+  font-weight: normal;
   font-size: 15px;
   padding: 12px 30px;
   display: inline-block;
   border: none;
   margin-left: 8%;
   cursor: pointer;
-  /* Плавний перехід при наведенні */
-  transition: opacity 0.3s ease, filter 0.3s ease;
+  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.2s ease;
 }
 
-/* При наведенні мишкою кнопка плавно трохи темнішає */
 .btn-skew-blue:hover {
-  filter: brightness(0.85); /* Трохи темнішає */
+  filter: brightness(0.9);
+  transform: translateY(-2px);
 }
 
-/* ===== СЕКЦІЯ ЗАКУЛІССЯ (Піднята та розширена) ===== */
+/* ===== СЕКЦІЯ ЗАКУЛІССЯ ===== */
 .bts-banner-section {
   background-color: #d11119;
   background-image: radial-gradient(#80040a 20%, transparent 20%);
@@ -474,10 +468,7 @@ a {
   display: flex;
   justify-content: center;
   overflow: hidden;
-
-  position: relative;
   z-index: 1;
-  /* Піднімаємо весь блок трохи вище */
   margin-top: -40px;
 }
 
@@ -485,47 +476,16 @@ a {
   background: radial-gradient(circle at center, #3a4150 0%, #171a23 65%, #0b0d12 100%);
   width: 100%;
   max-width: 100%;
-  
-  /* Збільшуємо мінімальну висоту, щоб фотографії не обрізалися */
   min-height: 800px; 
-  
-  /* Збільшений верхній padding дає запас місця для скосу над фотографіями */
   padding: 110px 80px 60px 80px; 
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  
-  /* Виражений нахил верхнього краю із збереженими дрібними зубцями */
   clip-path: polygon(
     0% 14%, 1% 12%, 2% 15%, 3% 13%, 4% 15%, 5% 12%, 6% 14%, 7% 13%, 8% 15%, 9% 12%, 10% 14%, 11% 13%, 12% 15%, 13% 12%, 14% 14%, 15% 13%, 16% 15%, 17% 11%, 18% 13%, 19% 12%, 20% 14%, 21% 11%, 22% 13%, 23% 12%, 24% 14%, 25% 10%, 26% 12%, 27% 11%, 28% 13%, 29% 10%, 30% 12%, 31% 11%, 32% 13%, 33% 9%, 34% 11%, 35% 10%, 36% 12%, 37% 9%, 38% 11%, 39% 10%, 40% 12%, 41% 7%, 42% 9%, 43% 8%, 44% 10%, 45% 7%, 46% 9%, 47% 8%, 48% 10%, 49% 6%, 50% 8%, 51% 7%, 52% 9%, 53% 6%, 54% 8%, 55% 7%, 56% 9%, 57% 5%, 58% 7%, 59% 6%, 60% 8%, 61% 4%, 62% 6%, 63% 5%, 64% 7%, 65% 4%, 66% 6%, 67% 5%, 68% 7%, 69% 3%, 70% 5%, 71% 4%, 72% 6%, 73% 3%, 74% 5%, 75% 4%, 76% 6%, 77% 2%, 78% 4%, 79% 3%, 80% 5%, 81% 1%, 82% 3%, 83% 2%, 84% 4%, 85% 1%, 86% 3%, 87% 2%, 88% 4%, 89% 0%, 90% 2%, 91% 1%, 92% 3%, 93% 0%, 94% 2%, 95% 1%, 96% 3%, 97% 0%, 98% 2%, 99% 1%, 100% 3%,
     100% 98%, 99% 100%, 98% 97%, 97% 99%, 96% 97%, 95% 100%, 94% 98%, 93% 99%, 92% 97%, 91% 100%, 90% 98%, 89% 99%, 88% 97%, 87% 100%, 86% 98%, 85% 99%, 84% 97%, 83% 100%, 82% 98%, 79% 100%, 78% 98%, 77% 99%, 76% 97%, 75% 100%, 74% 98%, 73% 99%, 72% 97%, 71% 100%, 70% 98%, 69% 99%, 68% 97%, 67% 100%, 66% 98%, 65% 99%, 64% 97%, 63% 100%, 62% 98%, 61% 99%, 60% 97%, 59% 100%, 58% 98%, 57% 99%, 56% 97%, 55% 100%, 54% 98%, 53% 99%, 52% 97%, 51% 100%, 50% 98%, 49% 99%, 48% 97%, 47% 100%, 46% 98%, 45% 99%, 44% 97%, 43% 100%, 42% 98%, 41% 99%, 40% 97%, 39% 100%, 38% 98%, 37% 99%, 36% 97%, 35% 100%, 34% 98%, 33% 99%, 32% 97%, 31% 100%, 30% 98%, 29% 99%, 28% 97%, 27% 100%, 26% 98%, 25% 99%, 24% 97%, 23% 100%, 22% 98%, 21% 99%, 20% 97%, 19% 100%, 18% 98%, 17% 99%, 16% 97%, 15% 100%, 14% 98%, 13% 99%, 12% 97%, 11% 100%, 10% 98%, 9% 99%, 8% 97%, 7% 100%, 6% 98%, 5% 99%, 4% 97%, 3% 100%, 2% 98%, 1% 99%, 0% 97%
   );
-}
-
-/* Базові стилі для зображень колажу */
-.bts-photos-column img {
-  width: 100%;
-  height: 135px;
-  object-fit: cover;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-/* Перше фото (Пітер та Нед) — фокус на обличчях зверху */
-.bts-photos-column img:nth-child(1) {
-  object-position: center 15%;
-}
-
-/* Друге фото (політ з ЕмДжей) — фокус трохи вище центру */
-.bts-photos-column img:nth-child(2) {
-  object-position: center 20%;
-}
-
-/* Третє фото (Том Холланд у футболці) — піднімаємо фокус на обличчя */
-.bts-photos-column img:nth-child(3) {
-  object-position: center 15%;
 }
 
 .bts-photos-column img {
@@ -537,7 +497,18 @@ a {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* Центрування вмісту */
+.bts-photos-column img:nth-child(1) {
+  object-position: center 15%;
+}
+
+.bts-photos-column img:nth-child(2) {
+  object-position: center 20%;
+}
+
+.bts-photos-column img:nth-child(3) {
+  object-position: center 15%;
+}
+
 .bts-content {
   text-align: center;
   flex: 1;
@@ -563,7 +534,6 @@ a {
   font-size: 16px;
 }
 
-/* Балансувальник ширини для точного центрування */
 .bts-banner-card::after {
   content: '';
   width: 220px;
@@ -571,7 +541,6 @@ a {
   display: block;
 }
 
-/* Хлопавка */
 .bts-clapper-icon {
   position: absolute;
   top: 20px;
@@ -582,7 +551,6 @@ a {
   z-index: 4;
 }
 
-/* Павук */
 .bts-spidey-img {
   position: absolute;
   right: 10px;
@@ -596,8 +564,6 @@ a {
 /* ===== СЕКЦІЯ АУДІОАРХІВУ ===== */
 .audio-banner-section {
   background-color: #8a080e;
-  
-  /* Фонова картинка павутини */
   background-image: url('/images/home/red-background-2.png') !important;
   background-size: cover;
   background-position: center;
@@ -605,7 +571,6 @@ a {
   position: relative;
   z-index: 2;
   margin-top: -130px;
-  
   padding: 110px 20px 80px 20px;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
@@ -613,7 +578,6 @@ a {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  /* Рваний край робимо ТІЛЬКИ ЗВЕРХУ, знизу — рівна лінія */
   clip-path: polygon(
     0% 4%, 1% 2%, 2% 5%, 3% 3%, 4% 5%, 5% 2%, 6% 4%, 7% 3%, 8% 5%, 9% 2%, 10% 4%, 11% 3%, 12% 5%, 13% 2%, 14% 4%, 15% 3%, 16% 5%, 17% 1%, 18% 3%, 19% 2%, 
     20% 4%, 21% 1%, 22% 3%, 23% 2%, 24% 4%, 25% 0%, 26% 2%, 27% 1%, 28% 3%, 29% 0%, 30% 2%, 31% 1%, 32% 3%, 33% 0%, 34% 2%, 35% 1%, 36% 3%, 37% 0%, 38% 2%, 39% 1%, 
@@ -624,7 +588,6 @@ a {
   );
 }
 
-/* Біла/світла центральна картка */
 .audio-banner-card {
   background-color: #ededed !important;
   max-width: 750px;
@@ -633,14 +596,12 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
   border-radius: 4px;
   position: relative;
   z-index: 2;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
 }
 
-/* Обгортка обкладинки та статичної платівки */
 .audio-cover-wrapper {
   position: absolute;
   left: -50px;
@@ -660,7 +621,6 @@ a {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Вініл за замовчуванням просто виглядає з-під обкладинки */
 .vinyl-plate {
   position: absolute;
   right: -130px;
@@ -671,7 +631,6 @@ a {
   z-index: 2;
 }
 
-/* Текстовий блок */
 .audio-content {
   flex: 1;
   color: #111;
@@ -710,14 +669,10 @@ a {
   color: #ffffff;
   width: 100%;
   min-height: 100vh;
-  overflow-x: hidden; /* Запобігає горизонтальній прокрутці */
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
-
-/* ==========================================
-   1. ВЕЛИКИЙ БАННЕР ПАВУКА ПІД ХЕДЕРОМ
-   ========================================== */
 
 .spider-hero-image {
   width: 100%;
@@ -735,10 +690,6 @@ a {
   display: block;
 }
 
-/* ==========================================
-   2. СЕКЦІЯ ФІЛЬМУ НА ВСЮ ШИРИНУ ЕКРАНА
-   ========================================== */
-
 .full-width-movie-section {
   width: 100%;
   margin-bottom: 0px;
@@ -750,31 +701,29 @@ a {
   background-image: url('/images/spiderpath/red-background.jpg');
 }
 
-.far-from-home{
+.far-from-home {
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/images/spiderpath/web-black.jpg');
 }
 
-.no-way-home{
+.no-way-home {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/spiderpath/red-background-with-spider.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
-.brand-new-day{
+.brand-new-day {
   background-image: url('/images/spiderpath/black-background_with-spider.jpg');
-    background-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
-/* СТАНДАРТНА БІЛА ПЛАШКА (Фільми 1 та 3) */
 .movie-header-banner {
   background-color: #ffffff;
   color: #000000;
   padding: 10px 5%;
   text-align: right;
-  /* Скошений кут з лівого боку */
   clip-path: polygon(5% 0%, 100% 0%, 100% 100%, 0% 100%);
   width: 100%;
   box-sizing: border-box;
@@ -790,7 +739,6 @@ a {
   text-transform: uppercase;
 }
 
-/* Внутрішній обмежувач вмісту */
 .movie-content-wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -800,31 +748,18 @@ a {
   align-items: flex-start;
 }
 
-/* ==========================================
-   3. ВІДДЗЕРКАЛЕНІ БЛОКИ (КЛАС .reverse)
-   (Для Фільмів 2 та 4)
-   ========================================== */
-
-/* Віддзеркалена біла плашка (кут і текст з протилежного боку) */
 .movie-header-banner.reverse {
   text-align: left;
-  /* Скошений кут тепер з правого боку */
   clip-path: polygon(0% 0%, 95% 0%, 100% 100%, 0% 100%);
 }
 
-/* Віддзеркалення розташування картинки та тексту */
 .movie-card-body.reverse .movie-content-wrapper {
   flex-direction: row-reverse;
 }
 
-/* Кнопка у віддзеркаленому блоці зміщується вліво */
 .movie-card-body.reverse .button-wrapper {
   justify-content: flex-start;
 }
-
-/* ==========================================
-   4. ПОСТЕР, ТЕКСТ ТА КНОПКА
-   ========================================== */
 
 .poster-container {
   flex-shrink: 0;
@@ -846,7 +781,6 @@ a {
 }
 
 .movie-description p {
-
   font-size: 1rem;
   line-height: 1.6;
   color: #f5f5f5;
@@ -855,30 +789,12 @@ a {
 
 .button-wrapper {
   display: flex;
-  justify-content: flex-end; /* Стандартно справа */
+  justify-content: flex-end;
   margin-top: 15px;
 }
 
-.cta-button {
-  background-color: #5bbcdb;
-  color: #000000;
-  border: none;
-  padding: 12px 26px;
-  font-size: 0.95rem;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.cta-button:hover {
-  background-color: #43a3c2;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(91, 188, 219, 0.4);
-}
-
 /* ==========================================
-   5. АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ
+   АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ
    ========================================== */
 
 @media (max-width: 820px) {
@@ -909,6 +825,7 @@ a {
     width: 100%;
   }
 
+  .btn-blue,
   .cta-button {
     width: 100%;
   }
