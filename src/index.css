@@ -596,7 +596,7 @@ a {
   background-color: #8a080e;
   
   /* Фонова картинка павутини */
-  background-image: url('/images/red-background-2.png') !important;
+  background-image: url('/images/home/red-background-2.png') !important;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

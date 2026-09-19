@@ -7,7 +7,7 @@ export default function Home() {
       <section className="hero-section">
         <div className="hero-container">
           <img 
-            src="/images/back-of-spiderman.png" 
+            src="/images/home/back-of-spiderman.png" 
             alt="Людина-павук" 
             className="hero-avatar" 
           />
@@ -28,7 +28,7 @@ export default function Home() {
           {/* Фільм 1 */}
           <div className="movie-card">
             <img
-              src="/images/homecoming.jpg" 
+              src="/images/home/homecoming.jpg" 
               alt="Spider-Man: Homecoming" 
               className="movie-poster"
             />
@@ -44,7 +44,7 @@ export default function Home() {
           {/* Фільм 2 */}
           <div className="movie-card">
             <img
-              src="/images/far-from-home.jpg" 
+              src="/images/home/far-from-home.jpg" 
               alt="Spider-Man: Far From Home" 
               className="movie-poster"
             />
@@ -60,7 +60,7 @@ export default function Home() {
           {/* Фільм 3 */}
           <div className="movie-card">
             <img
-              src="/images/no-way-home.jpg" 
+              src="/images/home/no-way-home.jpg" 
               alt="Spider-Man: No Way Home" 
               className="movie-poster"
             />
@@ -76,7 +76,7 @@ export default function Home() {
           {/* Фільм 4 */}
           <div className="movie-card">
             <img
-              src="/images/brand-new-day.webp" 
+              src="/images/home/brand-new-day.webp" 
               alt="Spider-Man: Brand New Day" 
               className="movie-poster"
             />
@@ -94,19 +94,19 @@ export default function Home() {
         <div className="stats-block">
           <ul className="stats-list">
             <li>
-              <img src="/images/red-spider.png" alt="spider" className="stat-spider-icon" />
+              <img src="/images/home/red-spider.png" alt="spider" className="stat-spider-icon" />
               <span>Загальний бюджет: Близько $750 млн (на створення чотирьох частин).</span>
             </li>
             <li>
-              <img src="/images/red-spider.png" alt="spider" className="stat-spider-icon" />
+              <img src="/images/home/red-spider.png" alt="spider" className="stat-spider-icon" />
               <span>Сумарні світові касові збори: понад $3.9 млрд.</span>
             </li>
             <li>
-              <img src="/images/red-spider.png" alt="spider" className="stat-spider-icon" />
+              <img src="/images/home/red-spider.png" alt="spider" className="stat-spider-icon" />
               <span>Середній рейтинг: одностайно 87% позитивних рецензій від критиків.</span>
             </li>
             <li>
-              <img src="/images/red-spider.png" alt="spider" className="stat-spider-icon" />
+              <img src="/images/home/red-spider.png" alt="spider" className="stat-spider-icon" />
               <span>Сумарний хронометраж: понад 9.5 годин перегляду.</span>
             </li>
           </ul>
@@ -127,7 +127,7 @@ export default function Home() {
             
             <div className="char-item">
               <div className="char-avatar-wrapper">
-                <img src="/images/spiderman-without-mask.jpg" alt="Пітер Паркер" className="char-avatar-img" />
+                <img src="/images/home/spiderman-without-mask.jpg" alt="Пітер Паркер" className="char-avatar-img" />
               </div>
               <div className="char-text">
                 <h3>Пітер Паркер</h3>
@@ -137,7 +137,7 @@ export default function Home() {
 
             <div className="char-item">
               <div className="char-avatar-wrapper">
-                <img src="/images/mj-2.avif" alt="ЕмДжей" className="char-avatar-img" />
+                <img src="/images/home/mj-2.avif" alt="ЕмДжей" className="char-avatar-img" />
               </div>
               <div className="char-text">
                 <h3>ЕмДжей</h3>
@@ -147,7 +147,7 @@ export default function Home() {
 
             <div className="char-item">
               <div className="char-avatar-wrapper">
-                <img src="/images/ned-2.webp" alt="Нед Лідс" className="char-avatar-img" />
+                <img src="/images/home/ned-2.webp" alt="Нед Лідс" className="char-avatar-img" />
               </div>
               <div className="char-text">
                 <h3>Нед</h3>
@@ -170,13 +170,13 @@ export default function Home() {
         <div className="bts-banner-card">
           
           {/* Іконка хлопавки зверху праворуч */}
-          <img src="/images/movie-clapper.png" alt="Хлопавка" className="bts-clapper-icon" />
+          <img src="/images/home/movie-clapper.png" alt="Хлопавка" className="bts-clapper-icon" />
 
           {/* Лівий колаж з 3 фото */}
           <div className="bts-photos-column">
-            <img src="/images/tom-ned.jpg" alt="Закулісся 1" />
-            <img src="/images/spiderman-mj.jpg" alt="Закулісся 2" />
-            <img src="/images/peter-pajamas.jpg" alt="Закулісся 3" />
+            <img src="/images/home/tom-ned.jpg" alt="Закулісся 1" />
+            <img src="/images/home/spiderman-mj.jpg" alt="Закулісся 2" />
+            <img src="/images/home/peter-pajamas.jpg" alt="Закулісся 3" />
           </div>
 
           {/* Центральний контент */}
@@ -188,7 +188,7 @@ export default function Home() {
           </div>
 
           {/* Людина-павук праворуч */}
-          <img src="/images/spiderman-right-side.png" alt="Людина-павук" className="bts-spidey-img" />
+          <img src="/images/home/spiderman-right-side.png" alt="Людина-павук" className="bts-spidey-img" />
 
         </div>
       </section>
@@ -199,8 +199,8 @@ export default function Home() {
           
           {/* Обкладинка та платівка */}
           <div className="audio-cover-wrapper">
-            <img src="/images/black-vinyl-circle.png" alt="Вініл" className="vinyl-plate" />
-            <img src="/images/spiderman-peace.jpg" alt="Обкладинка саундтреку" className="album-cover" />
+            <img src="/images/home/black-vinyl-circle.png" alt="Вініл" className="vinyl-plate" />
+            <img src="/images/home/spiderman-peace.jpg" alt="Обкладинка саундтреку" className="album-cover" />
           </div>
 
           {/* Текстовий контент */}
