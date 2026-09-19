@@ -194,10 +194,29 @@ export default function Home() {
       </section>
 
       {/* 5. Прев'ю аудіоархіву */}
-      <section className="preview-section audio-preview">
-        <h2>Саундтреки та атмосфера фільмів</h2>
-        <p>Добірка музичних треків із фільмів. Переслуховуй улюблені пісні та поринь у атмосферу кіно.</p>
-        <Link to="/audio-archive" className="btn-blue">Перейти до музики</Link>
+      <section className="audio-banner-section">
+        <div className="audio-banner-card">
+          
+          {/* Обкладинка та платівка */}
+          <div className="audio-cover-wrapper">
+            <img src="/images/black-vinyl-circle.png" alt="Вініл" className="vinyl-plate" />
+            <img src="/images/spiderman-peace.jpg" alt="Обкладинка саундтреку" className="album-cover" />
+          </div>
+
+          {/* Текстовий контент */}
+          <div className="audio-content">
+            <h2>Саундтреки та<br />атмосфера фільмів</h2>
+            <p>
+              Добірка культових треків із фільмів.<br />
+              Переслуховуй улюблені пісні та<br />
+              поринь у атмосферу кіно.
+            </p>
+            <Link to="/audio-archive" className="btn-skew-blue btn-music">
+              Перейти до музики &rarr;
+            </Link>
+          </div>
+
+        </div>
       </section>
     </div>
   );

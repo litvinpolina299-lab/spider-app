@@ -157,8 +157,8 @@ a {
   margin-left: calc(-50vw + 50%);
   width: 100vw;
   /* Прибираємо верхній відступ повністю, щоб підняти блок максимальної вгору */
-  padding: 0 0 30px 0; 
-  margin-top: -80px; /* Додатково піднімаємо блок вгору */
+  padding: 0 0 50px 0; 
+  margin-top: -40px; /* Додатково піднімаємо блок вгору */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -465,16 +465,18 @@ a {
   background-color: #d11119;
   background-image: radial-gradient(#80040a 20%, transparent 20%);
   background-size: 10px 10px;
-  padding: 40px 0 60px 0;
+  padding: 0 0 60px 0;
   position: relative;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   display: flex;
   justify-content: center;
   overflow: hidden;
-  
+
+  position: relative;
+  z-index: 1;
   /* Піднімаємо весь блок трохи вище */
-  margin-top: -30px;
+  margin-top: -40px;
 }
 
 .bts-banner-card {
@@ -483,10 +485,10 @@ a {
   max-width: 100%;
   
   /* Збільшуємо мінімальну висоту, щоб фотографії не обрізалися */
-  min-height: 580px; 
+  min-height: 800px; 
   
   /* Збільшений верхній padding дає запас місця для скосу над фотографіями */
-  padding: 120px 80px 60px 80px; 
+  padding: 110px 80px 60px 80px; 
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -526,7 +528,7 @@ a {
 
 .bts-photos-column img {
   width: 100%;
-  height: 135px;
+  height: 140px;
   object-fit: cover;
   border-radius: 4px;
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -570,9 +572,9 @@ a {
 /* Хлопавка */
 .bts-clapper-icon {
   position: absolute;
-  top: 15px;
+  top: 20px;
   right: 150px;
-  width: 230px;
+  width: 270px;
   height: auto;
   transform: rotate(12deg);
   z-index: 4;
@@ -582,9 +584,117 @@ a {
 .bts-spidey-img {
   position: absolute;
   right: 10px;
-  bottom: -20px;
+  bottom: 100px;
   height: 400px;
   object-fit: contain;
   z-index: 5;
   pointer-events: none;
+}
+
+/* ===== СЕКЦІЯ АУДІОАРХІВУ ===== */
+.audio-banner-section {
+  background-color: #8a080e;
+  
+  /* Фонова картинка павутини */
+  background-image: url('/images/red-background-2.png') !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 2;
+  margin-top: -130px;
+  
+  padding: 110px 20px 80px 20px;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* Рваний край робимо ТІЛЬКИ ЗВЕРХУ, знизу — рівна лінія */
+  clip-path: polygon(
+    0% 4%, 1% 2%, 2% 5%, 3% 3%, 4% 5%, 5% 2%, 6% 4%, 7% 3%, 8% 5%, 9% 2%, 10% 4%, 11% 3%, 12% 5%, 13% 2%, 14% 4%, 15% 3%, 16% 5%, 17% 1%, 18% 3%, 19% 2%, 
+    20% 4%, 21% 1%, 22% 3%, 23% 2%, 24% 4%, 25% 0%, 26% 2%, 27% 1%, 28% 3%, 29% 0%, 30% 2%, 31% 1%, 32% 3%, 33% 0%, 34% 2%, 35% 1%, 36% 3%, 37% 0%, 38% 2%, 39% 1%, 
+    40% 3%, 41% 0%, 42% 2%, 43% 1%, 44% 3%, 45% 0%, 46% 2%, 47% 1%, 48% 3%, 49% 0%, 50% 2%, 51% 1%, 52% 3%, 53% 0%, 54% 2%, 55% 1%, 56% 3%, 57% 0%, 58% 2%, 59% 1%, 
+    60% 3%, 61% 0%, 62% 2%, 63% 1%, 64% 3%, 65% 0%, 66% 2%, 67% 1%, 68% 3%, 69% 0%, 70% 2%, 71% 1%, 72% 3%, 73% 0%, 74% 2%, 75% 1%, 76% 3%, 77% 0%, 78% 2%, 79% 1%, 
+    80% 3%, 81% 0%, 82% 2%, 83% 1%, 84% 3%, 85% 0%, 86% 2%, 87% 1%, 88% 3%, 89% 0%, 90% 2%, 91% 1%, 92% 3%, 93% 0%, 94% 2%, 95% 1%, 96% 3%, 97% 0%, 98% 2%, 99% 1%, 100% 3%,
+    100% 100%, 0% 100%
+  );
+}
+
+/* Біла/світла центральна картка */
+.audio-banner-card {
+  background-color: #ededed !important;
+  max-width: 750px;
+  width: 100%;
+  padding: 50px 60px 50px 220px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Обгортка обкладинки та статичної платівки */
+.audio-cover-wrapper {
+  position: absolute;
+  left: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 280px;
+  height: 280px;
+  z-index: 2;
+}
+
+.album-cover {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Вініл за замовчуванням просто виглядає з-під обкладинки */
+.vinyl-plate {
+  position: absolute;
+  right: -130px;
+  top: -35px;
+  width: 320px;
+  height: 320px;
+  object-fit: contain;
+  z-index: 2;
+}
+
+/* Текстовий блок */
+.audio-content {
+  flex: 1;
+  color: #111;
+  padding-left: 120px;
+}
+
+.audio-content h2 {
+  font-family: 'Russo One', sans-serif;
+  font-size: 34px;
+  color: #111;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.audio-content p {
+  font-family: 'Russo One', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.btn-music {
+  margin-left: 0;
+  padding: 12px 28px;
+  font-size: 15px;
 }
