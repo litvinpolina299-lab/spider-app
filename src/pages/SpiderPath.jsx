@@ -53,9 +53,9 @@ const SpiderPath = () => {
               </p>
 
               <div className="button-wrapper">
-                <button className="cta-button">
+                <Button to="/behind-the-scenes" className="cta-button">
                   Поринути в атмосферу фільму
-                </button>
+                </Button>
               </div>
             </div>
           </div>
@@ -98,9 +98,9 @@ const SpiderPath = () => {
               </p>
 
               <div className="button-wrapper">
-                <button className="cta-button">
+                <Button to="/behind-the-scenes" className="cta-button">
                   Поринути в атмосферу фільму
-                </button>
+                </Button>
               </div>
             </div>
           </div>
@@ -143,9 +143,9 @@ const SpiderPath = () => {
               </p>
 
               <div className="button-wrapper">
-                <button className="cta-button">
+                <Button to="/behind-the-scenes" className="cta-button">
                   Поринути в атмосферу фільму
-                </button>
+                </Button>
               </div>
             </div>
           </div>
@@ -189,9 +189,9 @@ const SpiderPath = () => {
               </p>
 
               <div className="button-wrapper">
-                <button className="cta-button">
+                <Button to="/behind-the-scenes" className="cta-button">
                   Поринути в атмосферу фільму
-                </button>
+                </Button>
               </div>
             </div>
           </div>
