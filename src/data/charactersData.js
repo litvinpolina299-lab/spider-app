@@ -207,7 +207,7 @@ export const charactersData = [
     id: 16,
     name: "Отто Октавіус / Доктор Восьминіг",
     actor: "Альфред Моліна",
-    image: "/images/characters/doktor-vos'mynih.jpg",
+    image: "/images/characters/doktor-vosmynih.jpg",
     type: "villain",
     badge: "Лиходій",
     paragraphs: [
@@ -220,7 +220,7 @@ export const charactersData = [
     id: 17,
     name: "Піщана людина / Сандмен",
     actor: "Флінт Марко",
-    image: "/images/characters/flint-marco.webp",
+    image: "/images/characters/flint-marko.webp",
     type: "villain",
     badge: "Лиходій",
     paragraphs: [
