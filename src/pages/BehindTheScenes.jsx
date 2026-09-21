@@ -82,10 +82,11 @@ const BehindTheScenes = () => {
         <div className="bts-container">
           
           {/* Стікери як картинки (вкажи точні шляхи до своїх файлів у public) */}
-          <img src="/images/sticker-dude.png" alt="Dude sticker" className="sticker sticker--dude" />
-          <img src="/images/sticker-huh.png" alt="Huh sticker" className="sticker sticker--huh" />
-          <img src="/images/sticker-bang.png" alt="Bang sticker" className="sticker sticker--bang" />
-          <img src="/images/sticker-hello.png" alt="Hello sticker" className="sticker sticker--hello" />
+          <img src="/images/behindthescenes/dude.png" alt="Dude sticker" className="sticker sticker--dude" />
+          <img src="/images/behindthescenes/huh.png" alt="Huh sticker" className="sticker sticker--huh" />
+          <img src="/images/behindthescenes/bang.png" alt="Bang sticker" className="sticker sticker--bang" />
+          <img src="/images/behindthescenes/spidey-sticker.png" alt="Hello sticker" className="sticker sticker--hello" />
+          <img src="/images/behindthescenes/question.png" alt="Question" className="sticker sticker--question" />
 
           {/* Сітка 3x4 із картками */}
           <div className="bts-grid">
