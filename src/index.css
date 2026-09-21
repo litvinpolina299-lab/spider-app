@@ -1044,3 +1044,266 @@ a {
   opacity: 0.2;
   cursor: not-allowed;
 }
+
+/* ==========================================
+   СТОРАНКА: ЯК ЦЕ ЗНІМАЛИ (BEHIND THE SCENES)
+   ========================================== */
+
+/* --- 1. HERO СЕКЦІЯ --- */
+.bts-hero {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  min-height: 420px;
+  /* Замініть шлях на ваше фонове фото з трьома Павуками */
+  background: url('/images/spider-bg.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bts-hero__overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bts-hero__title {
+  color: #ffffff;
+  font-size: 3.8rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+  font-family: 'Impact', sans-serif, system-ui; /* Стилізований жирний шрифт */
+}
+
+/* --- 2. СЕКЦІЯ СІТКИ ТА ДІАГОНАЛЬНИЙ ФОН --- */
+.bts-content {
+  position: relative;
+  background-color: #0d1117; /* Темний колір нижньої частини */
+  padding: 60px 20px 100px;
+  overflow: hidden;
+}
+
+/* Світло-сірий блок із діагональним зрізом згори */
+.bts-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 52%; /* Займає приблизно верхню половину сітки */
+  background-color: #a0a6b0; /* Світло-сірий колір з макету */
+  /* Діагональний зріз */
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  z-index: 1;
+}
+
+.bts-container {
+  max-width: 1150px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2; /* Щоб картки та стікери були поверх фону */
+}
+
+/* Сітка 3x4 */
+.bts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px 25px;
+}
+
+/* --- 3. СТІКЕРИ В СТИЛІ КОМІКСІВ --- */
+.sticker {
+  position: absolute;
+  z-index: 10;
+  font-weight: 900;
+  font-family: 'Impact', sans-serif;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0px #000;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  user-select: none;
+}
+
+.sticker--dude {
+  top: -25px;
+  left: -20px;
+  background-color: #e50914;
+  color: #fff;
+  transform: rotate(-12deg);
+}
+
+.sticker--huh {
+  top: 240px;
+  left: 31%;
+  background-color: #e50914;
+  color: #fff;
+  transform: rotate(6deg);
+}
+
+.sticker--bang {
+  bottom: 220px;
+  right: -15px;
+  background-color: #ffcc00;
+  color: #000;
+  transform: rotate(-12deg);
+}
+
+.sticker--hello {
+  bottom: 180px;
+  left: -35px;
+  background-color: #e50914;
+  color: #fff;
+  transform: rotate(-10deg);
+}
+
+/* --- 4. КАРАТКА ВІДЕО --- */
+.video-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #000;
+}
+
+.video-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+.video-card__poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Біло-червона кнопка PLAY з макету */
+.video-card__play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 46px;
+  height: 46px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.video-card:hover .video-card__play-btn {
+  transform: translate(-50%, -50%) scale(1.1);
+  background-color: #f0f0f0;
+}
+
+.play-icon {
+  color: #e50914; /* Червоний колір трикутника */
+  font-size: 16px;
+  margin-left: 3px;
+}
+
+/* Напис поверх відео (наприклад, MAKING OF) */
+.video-card__title {
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 900;
+  font-family: 'Impact', sans-serif;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  letter-spacing: 0.5px;
+}
+
+/* --- 5. МОДАЛЬНЕ ВІКНО --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 850px;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.modal-close-btn:hover {
+  color: #e50914;
+}
+
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* --- АДАПТИВНІСТЬ --- */
+@media (max-width: 900px) {
+  .bts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .bts-grid {
+    grid-template-columns: 1fr;
+  }
+  .bts-hero__title {
+    font-size: 2.3rem;
+  }
+  .sticker {
+    display: none; /* Ховаємо стікери на маленьких екранах, щоб не перекривали відео */
+  }
+}

@@ -1,18 +1,18 @@
 import React from 'react';
 
 const VideoModal = ({ videoId, onClose }) => {
-  // Якщо немає ідентифікатора відео, модалка не відображається
+  // Якщо немає ідентифікатора, вікно не відображається
   if (!videoId) return null;
 
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        {/* Кнопка закриття */}
+        {/* Кнопка закриття (хрестик) */}
         <button className="modal-close-btn" onClick={onClose}>
           ✕
         </button>
 
-        {/* Вбудований YouTube плеєр */}
+        {/* Плеєр YouTube */}
         <div className="video-responsive">
           <iframe
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
