@@ -78,7 +78,7 @@ const BehindTheScenes = () => {
       </section>
 
       {/* Секція з сіткою та стікерами */}
-      <section className="bts-content">
+      <section className="bts-content-page">
         <div className="bts-container">
           
           {/* Стікери як картинки (вкажи точні шляхи до своїх файлів у public) */}

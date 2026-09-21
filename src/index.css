@@ -24,8 +24,13 @@ body {
   font-weight: 300;
   line-height: 1.5;
   min-height: 100vh;
+  overflow-x: hidden; /* Забороняє прокручування по горизонталі */
 }
 
+/* розміри блоків враховують padding і border */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 .hero-title,
 .hero-section h1 {
   font-family: 'Rubik Mono One', sans-serif;
@@ -168,7 +173,7 @@ a {
 .hero-section {
   position: relative;
   margin-left: calc(-50vw + 50%);
-  width: 100vw;
+  width: 100%;
   padding: 0 0 50px 0; 
   margin-top: -40px;
   display: flex;
@@ -1086,7 +1091,7 @@ a {
 }
 
 /* --- 2. СЕКЦІЯ СІТКИ ТА ДІАГОНАЛЬНИЙ ФОН --- */
-.bts-content {
+.bts-content-page {
   position: relative;
   background-color: #0d1117; /* Темний колір нижньої частини */
   padding: 60px 20px 100px;
@@ -1094,7 +1099,7 @@ a {
 }
 
 /* Світло-сірий блок із діагональним зрізом згори */
-.bts-content::before {
+.bts-content-page::before {
   content: '';
   position: absolute;
   top: 0;
