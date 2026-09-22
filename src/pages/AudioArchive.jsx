@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import TrackInfo from './TrackInfo';
-import PolaroidGallery from './PolaroidGallery';
+import TrackInfo from "../components/TrackInfo";
+import PolaroidGallery from "../components/PolaroidGallery";
 
 // 1. Список ваших пісень (масив даних)
 const TRACKS_DATA = [
