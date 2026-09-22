@@ -8,7 +8,7 @@ const TRACKS_DATA = [
     title: "Can't you hear me knocking",
     artist: "The Rolling Stones",
     cover: "/images/seagulls.jpg",
-    src: "/audio/space-age-love-song.mp3"
+    src: "/audio/The Rolling Stones - Can't Hear Me Knoking.mp3"
   },
   {
     id: 2,
@@ -23,84 +23,84 @@ const TRACKS_DATA = [
     artist: "Spoon",
     cover: "/images/spoon.jpg",
     src: "/audio/the-underdog.mp3"
-  }
+  },
   {
     id: 4,
     title: "Left Hand Free",
     artist: "Alt-J",
     cover: "/images/spoon.jpg",
     src: "/audio/the-underdog.mp3"
-  }
+  },
   {
     id: 5,
     title: "Space Age Love Song",
     artist: "A Flock Of Seagulls",
     cover: "/images/spoon.jpg",
     src: "/audio/the-underdog.mp3"
-  }
+  },
   {
     id: 6,
     title: "Bongo Cha Cha Cha",
     artist: "Caterins Valente",
     cover: "/images/spoon.jpg",
     src: "/audio/the-underdog.mp3"
-  }
+  },
   {
     id: 7,
     title: "Stella Stai",
     artist: "Umberto Tozzi",
     cover: "/images/spoon.jpg",
     src: "/audio/the-underdog.mp3"
-  }
+  },
   {
     id: 8,
     title: "AC/DC",
     artist: "Back In Black",
     cover: "",
     src: ""
-  }
+  },
   {
     id: 9,
     title: "Wolf Like Me",
     artist: "TV On The Radio",
     cover: "/images/spoon.jpg",
     src: "/audio/the-underdog.mp3"
-  }
+  },
   {
     id: 10,
     title: "Im Every Woman",
     artist: "Chaka Khan",
     cover: "/images/spoon.jpg",
     src: "/audio/the-underdog.mp3"
-  }
+  },
   {
     id: 11,
     title: "Loser",
     artist: "Tame Impala",
     cover: "/images/spoon.jpg",
     src: "/audio/the-underdog.mp3"
-  }
+  },
   {
     id: 12,
     title: "Fire For You",
     artist: "Cannons",
     cover: "/images/spoon.jpg",
     src: "/audio/the-underdog.mp3"
-  }
+  },
   {
     id: 13,
     title: "Eoo",
     artist: "Bad Bunny",
     cover: "/images/spoon.jpg",
     src: "/audio/the-underdog.mp3"
-  }
+  },
   {
     id: 14,
     title: "St Elmo's Fire",
     artist: "Brian Eno",
     cover: "/images/spoon.jpg",
     src: "/audio/the-underdog.mp3"
-  }
+  },
   {
     id: 15,
     title: "Oh Yeah",
