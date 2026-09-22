@@ -1,30 +1,36 @@
 import React from 'react';
 
 const PolaroidGallery = ({ tracks, currentIndex, setCurrentIndex }) => {
-  const totalTracks = tracks.length;
-
-  // Формуємо масив з 5 видимих індексів: [-2, -1, 0, 1, 2]
-  const visibleSlots = [-2, -1, 0, 1, 2];
+  const total = tracks.length;
 
   return (
     <div className="polaroid-gallery-wrapper">
       <div className="polaroid-gallery">
-        {visibleSlots.map((offset) => {
-          // Зациклюємо вибір індексу, щоб карусель горталася безкінечно
-          let trackIndex = (currentIndex + offset) % totalTracks;
-          if (trackIndex < 0) trackIndex += totalTracks;
+        {tracks.map((track, index) => {
+          let offset = index - currentIndex;
 
-          const track = tracks[trackIndex];
-          const isCenter = offset === 0;
+          // Корекція циклу
+          if (offset < -Math.floor(total / 2)) offset += total;
+          if (offset > Math.floor(total / 2)) offset -= total;
+
+          // Якщо картка за межами видимості (більше 2 слотів убік)
+          const isHidden = Math.abs(offset) > 2;
+          
+          // Визначаємо клас слота
+          const slotClass = isHidden 
+            ? (offset > 0 ? 'slot-hidden-right' : 'slot-hidden-left')
+            : `slot-${offset < 0 ? '-' + Math.abs(offset) : offset}`;
+          
+          const isActive = offset === 0;
 
           return (
             <div
-              key={`${track.id}-${offset}`}
-              className={`polaroid-card slot-${offset} ${isCenter ? 'active' : ''}`}
-              onClick={() => setCurrentIndex(trackIndex)}
+              key={track.id || index}
+              className={`polaroid-card ${slotClass} ${isActive ? 'active' : ''}`}
+              onClick={() => setCurrentIndex(index)}
             >
               <div className="card-image">
-                <img src={track.cover || '/images/default-cover.jpg'} alt={track.title} />
+                <img src={track.cover} alt={track.title} />
               </div>
               <div className="card-info">
                 <h4>{track.artist}</h4>

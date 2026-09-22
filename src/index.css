@@ -1311,19 +1311,29 @@ a {
     display: none; /* Ховаємо стікери на маленьких екранах, щоб не перекривали відео */
   }
 }
+
+
+/* АУДІОАРХІВ /
 /* ФОН ТА ОСНОВНІ СТИЛІ */
 .audio-archive-page {
-  background: #0f0203 url('/images/web-pattern.jpg') center/cover repeat;
-  min-height: 100vh;
+  min-height: 400px;
   padding-bottom: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.hero-section img {
+.hero-banner {
   width: 100%;
-  max-height: 450px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-banner img {
+  width: 100%;
+  max-height: 500px;
   object-fit: cover;
   display: block;
 }
@@ -1331,21 +1341,30 @@ a {
 /* ЗАГОЛОВОК З ЗРІЗАНИМИ КУТАМИ */
 .archive-title-container {
   width: 100%;
-  max-width: 850px;
-  margin: 30px auto;
+  margin: 0;
 }
 
 .archive-title {
   background-color: #ffffff;
   color: #000000;
   text-align: center;
-  padding: 10px 0;
+  padding: 12px 0;
   font-family: 'Arial Black', sans-serif;
   font-size: 26px;
   font-weight: 900;
   text-transform: uppercase;
   margin: 0;
-  clip-path: polygon(4% 0%, 96% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(50px 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.music-section {
+  width: 100%;
+  background: url('/images/audioarchive/red-background-2.png') center/cover repeat;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 3D ПОЗИЦІОНУВАННЯ 5 КАРТОК POLAROID */
@@ -1358,6 +1377,7 @@ a {
   align-items: center;
   position: relative;
   margin-top: 10px;
+  perspective: 1000px;
 }
 
 .polaroid-gallery {
@@ -1369,16 +1389,21 @@ a {
   align-items: center;
 }
 
+/* КАРТКА POLAROID ТА АНІМАЦІЯ */
 .polaroid-card {
   position: absolute;
   background-color: #ffffff;
   padding: 10px 10px 15px 10px;
   width: 190px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   color: #000000;
   text-align: center;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              z-index 0.5s step-end;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
 }
 
 .polaroid-card .card-image img {
@@ -1400,82 +1425,206 @@ a {
   margin: 0;
 }
 
-/* Точний розклад карток у просторі (як на макеті) */
+/* ПОЗИЦІОНУВАННЯ СЛОТІВ КАРУСЕЛІ */
+.slot-hidden-left {
+  transform: translateX(-380px) rotate(-18deg) scale(0.6);
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .slot--2 {
   transform: translateX(-260px) rotate(-12deg) scale(0.8);
   z-index: 1;
-  opacity: 0.85;
+  opacity: 0.7;
 }
 
 .slot--1 {
   transform: translateX(-130px) rotate(-6deg) scale(0.9);
-  z-index: 2;
+  z-index: 3;
+  opacity: 0.9;
 }
 
 .slot-0.active {
   transform: translateX(0) rotate(0deg) scale(1.15);
-  z-index: 5;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.9);
+  z-index: 10;
+  opacity: 1;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9);
 }
 
 .slot-1 {
   transform: translateX(130px) rotate(6deg) scale(0.9);
-  z-index: 2;
+  z-index: 3;
+  opacity: 0.9;
 }
 
 .slot-2 {
   transform: translateX(260px) rotate(12deg) scale(0.8);
   z-index: 1;
-  opacity: 0.85;
+  opacity: 0.7;
+}
+
+.slot-hidden-right {
+  transform: translateX(380px) rotate(18deg) scale(0.6);
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* ТЕМНИЙ АУДІОПЛЕЄР */
 .custom-audio-player {
-  background-color: #0a0a0a;
+  background-color: #0d0d0d;
   border: 1px solid #222;
-  width: 280px;
-  padding: 12px 20px;
-  border-radius: 4px;
-  margin-top: 25px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
-  z-index: 10;
+  width: 100%;
+  max-width: 420px;
+  padding: 20px 25px;
+  border-radius: 12px;
+  margin-top: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
 }
 
+/* 1. ПОВЗУНОК МУЗИКИ ЗВЕРХУ */
+.progress-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.time-display {
+  color: #888;
+  font-size: 13px;
+  font-family: monospace;
+  min-width: 35px;
+  text-align: center;
+}
+
+.progress-bar-input {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  border-radius: 5px;
+  background: linear-gradient(
+    to right, 
+    #e50914 0%, 
+    #e50914 var(--progress-percent, 0%), 
+    #333 var(--progress-percent, 0%), 
+    #333 100%
+  );
+  outline: none;
+  cursor: pointer;
+}
+
+.progress-bar-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #e50914;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.progress-bar-input::-webkit-slider-thumb:hover {
+  transform: scale(1.3);
+}
+
+/* 2. КНОПКИ КЕРУВАННЯ */
 .player-controls {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
 }
 
 .icon-btn, .play-btn {
   background: none;
   border: none;
   color: #ffffff;
+  font-size: 22px;
   cursor: pointer;
-  font-size: 14px;
-  transition: transform 0.1s;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .play-btn {
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .icon-btn:hover, .play-btn:hover {
+  transform: scale(1.15);
+  color: #e50914;
+}
+
+/* 3. РЕГУЛЯТОР ГУЧНОСТІ ЗНИЗУ */
+.volume-section-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 70%;
+  margin-top: 2px;
+}
+
+.volume-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.volume-icon-btn.small {
+  font-size: 13px;
+}
+
+.volume-icon-btn.large {
+  font-size: 18px;
+}
+
+.volume-icon-btn:hover {
   transform: scale(1.2);
 }
 
-.progress-bar-container {
-  width: 100%;
-  height: 3px;
-  background-color: #333333;
-  border-radius: 2px;
-  overflow: hidden;
+.volume-bar-input {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(
+    to right, 
+    #e50914 0%, 
+    #e50914 var(--volume-percent, 80%), 
+    #333 var(--volume-percent, 80%), 
+    #333 100%
+  );
+  outline: none;
+  cursor: pointer;
 }
 
-.progress-bar {
-  height: 100%;
-  background-color: #ffffff;
-  width: 0%;
-  transition: width 0.1s linear;
+.volume-bar-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #e50914;
+  border: 1.5px solid #ffffff;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.volume-bar-input::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
 }
