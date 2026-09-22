@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import TrackInfo from "../components/TrackInfo";
 import PolaroidGallery from "../components/PolaroidGallery";
 
@@ -7,8 +7,8 @@ const TRACKS_DATA = [
     id: 1,
     title: "Can't you hear me knocking",
     artist: "The Rolling Stones",
-    cover: "/images/seagulls.jpg",
-    src: "/audio/The Rolling Stones - Can't Hear Me Knoking.mp3"
+    cover: "/images/audioarchive/The_Rolling_Stones_-_Can't_Hear_Me_Knoking.jpg",
+    src: "/audio/The-Rolling-Stones-Can't-Hear-Me-Knoking.mp3"
   },
   {
     id: 2,
@@ -109,34 +109,78 @@ const TRACKS_DATA = [
     src: "/audio/the-underdog.mp3"
   }
 ];
-
 function AudioArchivePage() {
-  // 2. Стан для збереження індексу поточного треку (за замовчуванням перший — 0)
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  
+  // Посилання на аудіо-тег
+  const audioRef = useRef(null);
 
-  // Отримуємо об'єкт поточного треку
   const currentTrack = TRACKS_DATA[currentIndex];
+
+  // Перемикання відтворення / паузи
+  const togglePlay = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  // Перемикання на наступну пісню
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % TRACKS_DATA.length);
+  };
+
+  // Перемикання на попередню пісню
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + TRACKS_DATA.length) % TRACKS_DATA.length);
+  };
 
   return (
     <div className="audio-archive-page">
-      {/* Тут ваша вступна картинка-колаж */}
       <div className="hero-section">
         <img src="/images/spidey-hero-collage.jpg" alt="Spiderman Header" />
       </div>
 
-      <h1 className="archive-title">SPIDERMAN Music Archive</h1>
+      <div className="archive-title-container">
+        <h1 className="archive-title">SPIDERMAN Music Archive</h1>
+      </div>
 
-      {/* Компонент з картками-прямокутниками */}
+      {/* Галерея */}
       <PolaroidGallery 
         tracks={TRACKS_DATA} 
         currentIndex={currentIndex} 
         setCurrentIndex={setCurrentIndex} 
       />
 
-      {/* Ваш компонент з інформацією про трек */}
+      {/* Інформація про трек */}
       <TrackInfo currentTrack={currentTrack} />
 
-      {/* ТУТ буде ваш компонент плеєра з кнопками Play/Pause */}
+      {/* --- АУДІОПЛЕЄР ПРЯМО ТУТ (БЕЗ ОКРЕМОГО ФАЙЛУ) --- */}
+      <div className="custom-audio-player">
+        <audio 
+          ref={audioRef} 
+          src={currentTrack?.src} 
+          onEnded={handleNext} 
+        />
+        
+        <div className="player-controls">
+          <button className="icon-btn">🔀</button>
+          <button className="icon-btn" onClick={handlePrev}>⏮</button>
+          <button className="play-btn" onClick={togglePlay}>
+            {isPlaying ? '⏸' : '▶'}
+          </button>
+          <button className="icon-btn" onClick={handleNext}>⏭</button>
+          <button className="icon-btn">🔁</button>
+        </div>
+        
+        <div className="progress-bar-container">
+          <div className="progress-bar"></div>
+        </div>
+      </div>
+      {/* -------------------------------------------------- */}
     </div>
   );
 }
