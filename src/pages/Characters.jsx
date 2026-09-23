@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { charactersData } from '../data/charactersData';
 import '../App.css';
 
@@ -11,20 +11,46 @@ export default function Characters() {
   const [heroIndex, setHeroIndex] = useState(0);
   const [villainIndex, setVillainIndex] = useState(0);
 
+  // Динамічна кількість карток: 1 для мобільних (<= 768px), 2 для десктопу
+  const [itemsPerPage, setItemsPerPage] = useState(
+    typeof window !== 'undefined' && window.innerWidth <= 768 ? 1 : 2
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setItemsPerPage(1);
+      } else {
+        setItemsPerPage(2);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Карусель героїв (гортання по 1)
   const nextHero = () => {
-    if (heroIndex < heroes.length - 2) setHeroIndex(heroIndex + 1);
+    if (heroIndex < heroes.length - itemsPerPage) {
+      setHeroIndex(heroIndex + 1);
+    }
   };
   const prevHero = () => {
-    if (heroIndex > 0) setHeroIndex(heroIndex - 1);
+    if (heroIndex > 0) {
+      setHeroIndex(heroIndex - 1);
+    }
   };
 
   // Карусель лиходіїв (гортання по 1)
   const nextVillain = () => {
-    if (villainIndex < villains.length - 2) setVillainIndex(villainIndex + 1);
+    if (villainIndex < villains.length - itemsPerPage) {
+      setVillainIndex(villainIndex + 1);
+    }
   };
   const prevVillain = () => {
-    if (villainIndex > 0) setVillainIndex(villainIndex - 1);
+    if (villainIndex > 0) {
+      setVillainIndex(villainIndex - 1);
+    }
   };
 
   return (
@@ -58,7 +84,7 @@ export default function Characters() {
             </button>
 
             <div className="cards-wrapper">
-              {heroes.slice(heroIndex, heroIndex + 2).map((char) => (
+              {heroes.slice(heroIndex, heroIndex + itemsPerPage).map((char) => (
                 <div key={char.id} className="character-card-wrapper">
                   <div className="card-header-badge">
                     <h2>{char.name}</h2>
@@ -97,7 +123,7 @@ export default function Characters() {
             <button 
               className="arrow-btn right" 
               onClick={nextHero}
-              disabled={heroIndex >= heroes.length - 2}
+              disabled={heroIndex >= heroes.length - itemsPerPage}
             >
               &#10095;
             </button>
@@ -120,7 +146,7 @@ export default function Characters() {
             </button>
 
             <div className="cards-wrapper">
-              {villains.slice(villainIndex, villainIndex + 2).map((char) => (
+              {villains.slice(villainIndex, villainIndex + itemsPerPage).map((char) => (
                 <div key={char.id} className="character-card-wrapper">
                   <div className="card-header-badge villain-card-header">
                     <h2>{char.name}</h2>
@@ -159,7 +185,7 @@ export default function Characters() {
             <button 
               className="arrow-btn right" 
               onClick={nextVillain}
-              disabled={villainIndex >= villains.length - 2}
+              disabled={villainIndex >= villains.length - itemsPerPage}
             >
               &#10095;
             </button>
