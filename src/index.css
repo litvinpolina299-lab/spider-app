@@ -1,3 +1,83 @@
+/* ===== PRELOADER: ПОВІЛЬНЕ ПРОЯВЛЕННЯ -> ДОВШЕ ЗАВМИРАННЯ -> ЗБІЛЬШЕННЯ ТА ЗГАСАННЯ ===== */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #171a23 0%, #0b0d12 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+  /* Темний фон починає розчинятися під час фінального зуму на 2.3s */
+  animation: preloaderFadeOut 0.5s ease-out 2.3s forwards;
+}
+
+.spider-scale-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Загальний час анімації павука 2.8s */
+  animation: spiderZoomSequence 2.8s linear forwards;
+}
+
+.preloader-spider-img {
+  width: 130px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 25px rgba(255, 30, 39, 0.7));
+}
+
+/* КРОКИ АНІМАЦІЇ:
+   0%  -> 15% : Темний екран (opacity: 0, scale: 1)
+   15% -> 45% : ПОВІЛЬНЕ ПРОЯВЛЕННЯ по центру (opacity: 0 -> 1, scale: 1)
+   45% -> 72% : ДОВГЕ ЗАВМИРАННЯ по центру (opacity: 1, scale: 1)
+   72% -> 100%: ЗБІЛЬШЕННЯ на весь екран ТА ОДНОЧАСНЕ ЗГАСАННЯ (opacity -> 0)
+*/
+@keyframes spiderZoomSequence {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  15% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  /* ПОВІЛЬНЕ ПРОЯВЛЕННЯ (займає ~0.8 секунди) */
+  45% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  /* ДОВГЕ ЗАВМИРАННЯ ПО ЦЕНТРУ (займає ~0.8 секунди) */
+  72% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  /* ЗБІЛЬШЕННЯ + ЗГАСАННЯ ТА ВІДКРИТТЯ САЙТУ */
+  90% {
+    transform: scale(18);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(45);
+    opacity: 0;
+  }
+}
+
+/* Проявлення головного екрана */
+@keyframes preloaderFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
 :root {
   /* Кольори */
   --color-blue: #4FC3F7;
