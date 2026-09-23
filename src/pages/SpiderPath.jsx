@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import Button from '../components/Button';
 import '../App.css';
 
 const SpiderPath = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // 1. Спочатку перевіряємо state (якщо перейшли з оновленого футера)
+    // 2. Якщо state немає, перевіряємо hash (#homecoming) для сумісності з прямими посиланнями
+    const targetId = location.state?.scrollToId || location.hash.replace('#', '');
+
+    if (targetId) {
+      const timer = setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 250);
+
+      return () => clearTimeout(timer);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location]);
+
   return (
     <div className="spider-path-page">
       {/*  Збільшена картинка Людини-Павука під хедером */}
@@ -15,7 +37,7 @@ const SpiderPath = () => {
       </section>
 
       {/* ================= ФІЛЬМ 1: Homecoming ================= */}
-      <section className="full-width-movie-section homecoming">
+      <section id="homecoming" className="full-width-movie-section homecoming">
         {/* Біла полоска зі скошеним кутом */}
         <div className="movie-header-banner">
           <h2>Spider-Man: Homecoming (2017)</h2>
@@ -63,7 +85,7 @@ const SpiderPath = () => {
       </section>
 
       {/* ================= ФІЛЬМ 2: Far From Home (ВІДДЗЕРКАЛЕНИЙ) ================= */}
-      <section className="full-width-movie-section far-from-home">
+      <section id="far-from-home" className="full-width-movie-section far-from-home">
         <div className="movie-header-banner reverse">
           <h2>Spider-Man: Far From Home (2019)</h2>
         </div>
@@ -81,7 +103,7 @@ const SpiderPath = () => {
               <p>
                 Оплакуючи втрату наставника Тоні Старка після подій «Фіналу», Пітер Паркер прагне
                 ненадовго поставити супергеройські обов’язки на паузу. Він вирушає на шкільні канікули
-                до Європи, сподіваючись на звичайне підліткове життя. Проте шкільну поїздку перериває 
+                до Європи, сподіваючись на ззвичайне підліткове життя. Проте шкільну поїздку перериває 
                 Нік Ф’юрі через нову загрозу — Елементалів, істот із природних стихій.
               </p>
               <p>
@@ -108,7 +130,7 @@ const SpiderPath = () => {
       </section>
 
       {/* ================= ФІЛЬМ 3: No Way Home ================= */}
-      <section className="full-width-movie-section no-way-home">
+      <section id="no-way-home" className="full-width-movie-section no-way-home">
         <div className="movie-header-banner">
           <h2>Spider-Man: No Way Home (2021)</h2>
         </div>
@@ -153,7 +175,7 @@ const SpiderPath = () => {
       </section>
 
       {/* ================= ФІЛЬМ 4: Brand New Day (ВІДДЗЕРКАЛЕНИЙ) ================= */}
-      <section className="full-width-movie-section brand-new-day">
+      <section id="brand-new-day" className="full-width-movie-section brand-new-day">
         <div className="movie-header-banner reverse">
           <h2>Spider-Man: Brand New Day</h2>
         </div>

@@ -25,64 +25,89 @@ export default function Home() {
       {/* 2. Блок фільмів та статистики */}
       <section className="movies-section">
         <div className="movies-grid">
-          {/* Фільм 1 */}
+          
+          {/* Фільм 1: Homecoming */}
           <div className="movie-card">
-            <img
-              src="/images/home/homecoming.jpg" 
-              alt="Spider-Man: Homecoming" 
-              className="movie-poster"
-            />
-            <div className="movie-title-banner">
-              Spider-Man: Homecoming (2017)
-            </div>
+            <Link 
+              to="/spider-path" 
+              state={{ scrollToId: 'homecoming' }} 
+              className="movie-card-link"
+            >
+              <img
+                src="/images/home/homecoming.jpg" 
+                alt="Spider-Man: Homecoming" 
+                className="movie-poster"
+              />
+              <div className="movie-title-banner">
+                Spider-Man: Homecoming (2017)
+              </div>
+            </Link>
             <div className="movie-actions">
               <Link to="/behind-the-scenes" className="btn-action main-btn">Закулісся</Link>
               <Link to="/audio-archive" className="btn-action icon-btn" title="Аудіоархів">🎧</Link>
             </div>
           </div>
 
-          {/* Фільм 2 */}
+          {/* Фільм 2: Far From Home */}
           <div className="movie-card">
-            <img
-              src="/images/home/far-from-home.jpg" 
-              alt="Spider-Man: Far From Home" 
-              className="movie-poster"
-            />
-            <div className="movie-title-banner">
-              Spider-Man: Far From Home (2019)
-            </div>
+            <Link 
+              to="/spider-path" 
+              state={{ scrollToId: 'far-from-home' }} 
+              className="movie-card-link"
+            >
+              <img
+                src="/images/home/far-from-home.jpg" 
+                alt="Spider-Man: Far From Home" 
+                className="movie-poster"
+              />
+              <div className="movie-title-banner">
+                Spider-Man: Far From Home (2019)
+              </div>
+            </Link>
             <div className="movie-actions">
               <Link to="/behind-the-scenes" className="btn-action main-btn">Закулісся</Link>
               <Link to="/audio-archive" className="btn-action icon-btn" title="Аудіоархів">🎧</Link>
             </div>
           </div>
 
-          {/* Фільм 3 */}
+          {/* Фільм 3: No Way Home */}
           <div className="movie-card">
-            <img
-              src="/images/home/no-way-home.jpg" 
-              alt="Spider-Man: No Way Home" 
-              className="movie-poster"
-            />
-            <div className="movie-title-banner">
-              Spider-Man: No Way Home (2021)
-            </div>
+            <Link 
+              to="/spider-path" 
+              state={{ scrollToId: 'no-way-home' }} 
+              className="movie-card-link"
+            >
+              <img
+                src="/images/home/no-way-home.jpg" 
+                alt="Spider-Man: No Way Home" 
+                className="movie-poster"
+              />
+              <div className="movie-title-banner">
+                Spider-Man: No Way Home (2021)
+              </div>
+            </Link>
             <div className="movie-actions">
               <Link to="/behind-the-scenes" className="btn-action main-btn">Закулісся</Link>
               <Link to="/audio-archive" className="btn-action icon-btn" title="Аудіоархів">🎧</Link>
             </div>
           </div>
 
-          {/* Фільм 4 */}
+          {/* Фільм 4: Brand New Day */}
           <div className="movie-card">
-            <img
-              src="/images/home/brand-new-day.webp" 
-              alt="Spider-Man: Brand New Day" 
-              className="movie-poster"
-            />
-            <div className="movie-title-banner">
-              Spider-Man: Brand New Day (2026)
-            </div>
+            <Link 
+              to="/spider-path" 
+              state={{ scrollToId: 'brand-new-day' }} 
+              className="movie-card-link"
+            >
+              <img
+                src="/images/home/brand-new-day.webp" 
+                alt="Spider-Man: Brand New Day" 
+                className="movie-poster"
+              />
+              <div className="movie-title-banner">
+                Spider-Man: Brand New Day (2026)
+              </div>
+            </Link>
             <div className="movie-actions">
               <Link to="/behind-the-scenes" className="btn-action main-btn">Закулісся</Link>
               <Link to="/audio-archive" className="btn-action icon-btn" title="Аудіоархів">🎧</Link>
@@ -117,12 +142,10 @@ export default function Home() {
       <section className="section-block characters-section">
         <div className="characters-container">
           
-          {/* Скошений білий заголовок */}
           <div className="block-title-badge">
             <h2>Персонажі</h2>
           </div>
 
-          {/* Список персонажів з паралелограмами */}
           <div className="characters-list">
             
             <div className="char-item">
@@ -157,7 +180,6 @@ export default function Home() {
 
           </div>
 
-          {/* Скошена блакитна кнопка */}
           <Link to="/characters" className="btn-skew-blue">
             Дізнатися більше...
           </Link>
@@ -169,17 +191,14 @@ export default function Home() {
       <section className="bts-banner-section">
         <div className="bts-banner-card">
           
-          {/* Іконка хлопавки зверху праворуч */}
           <img src="/images/home/movie-clapper.png" alt="Хлопавка" className="bts-clapper-icon" />
 
-          {/* Лівий колаж з 3 фото */}
           <div className="bts-photos-column">
             <img src="/images/home/tom-ned.jpg" alt="Закулісся 1" />
             <img src="/images/home/spiderman-mj.jpg" alt="Закулісся 2" />
             <img src="/images/home/peter-pajamas.jpg" alt="Закулісся 3" />
           </div>
 
-          {/* Центральний контент */}
           <div className="bts-content">
             <h2>Хочеш побачити<br />закулісся зйомок?</h2>
             <Link to="/behind-the-scenes" className="btn-skew-blue">
@@ -187,7 +206,6 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Людина-павук праворуч */}
           <img src="/images/home/spiderman-right-side.png" alt="Людина-павук" className="bts-spidey-img" />
 
         </div>
@@ -197,13 +215,11 @@ export default function Home() {
       <section className="audio-banner-section">
         <div className="audio-banner-card">
           
-          {/* Обкладинка та платівка */}
           <div className="audio-cover-wrapper">
             <img src="/images/home/black-vinyl-circle.png" alt="Вініл" className="vinyl-plate" />
             <img src="/images/home/spiderman-peace.jpg" alt="Обкладинка саундтреку" className="album-cover" />
           </div>
 
-          {/* Текстовий контент */}
           <div className="audio-content">
             <h2>Саундтреки та<br />атмосфера фільмів</h2>
             <p>
