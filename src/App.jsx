@@ -27,7 +27,7 @@ export default function App() {
         <div className="preloader">
           <div className="spider-scale-wrapper">
             <img 
-              src="/images/white-spider.png" /* Перевірте шлях до картинки */
+              src="/images/white-spider.png"
               alt="Spider Preloader" 
               className="preloader-spider-img" 
             />
